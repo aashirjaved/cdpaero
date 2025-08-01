@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* CDP AERO Color Variables */
+    --primary-blue: #1B365D;
+    --accent-gold: #D4AF37;
+    --pure-white: #FFFFFF;
+    --charcoal: #2C3E50;
+    --light-gray: #F8F9FA;
+    --medium-gray: #6C757D;
+    --success-green: #28A745;
+    --subtle-blue: #E3F2FD;
+    --hero-gradient: linear-gradient(135deg, #1B365D 0%, #2C3E50 100%);
+    --accent-gradient: linear-gradient(90deg, #D4AF37 0%, #B8941F 100%);
+    
+    /* Font Sizes - Desktop */
+    --hero-heading: 56px;
+    --section-heading: 40px;
+    --sub-heading: 26px;
+    --body-text: 18px;
+    --small-text: 14px;
+    
+    /* Spacing Scale */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+    --spacing-2xl: 64px;
+    --spacing-3xl: 96px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .cdp-button {
+    @apply bg-cdp-accent-gold hover:bg-cdp-dark-gold text-white font-medium px-8 py-3 transition-all duration-300 uppercase tracking-wider text-sm rounded-lg;
+  }
+  
+  .cdp-button-outline {
+    @apply border-2 border-cdp-accent-gold text-cdp-accent-gold hover:bg-cdp-accent-gold hover:text-white font-medium px-8 py-3 transition-all duration-300 uppercase tracking-wider text-sm rounded-lg;
+  }
+  
+  .cdp-button-ghost {
+    @apply text-cdp-accent-gold hover:bg-cdp-accent-gold/10 font-medium px-8 py-3 transition-all duration-300 uppercase tracking-wider text-sm;
+  }
+  
+  .section-padding {
+    @apply px-4 md:px-8 lg:px-16 xl:px-24;
+  }
+  
+  .hero-text {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight tracking-wide;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .overlay-gradient {
+    @apply absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+}
+
+/* Custom animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+}
